@@ -1,3 +1,13 @@
+From: John Crispin <john@phrozen.org>
+Subject: ath79: fix remove irq code from pci driver patch
+
+This patch got mangled in the void while rebasing it.
+
+Submitted-by: John Crispin <john@phrozen.org>
+---
+ arch/mips/pci/pci-ar71xx.c                    | 107 ------------------
+ 1 file changed, 141 deletions(-)
+
 --- a/arch/mips/pci/pci-ar71xx.c
 +++ b/arch/mips/pci/pci-ar71xx.c
 @@ -51,11 +51,9 @@
@@ -117,7 +127,7 @@
  static void ar71xx_pci_reset(void)
  {
  	ath79_device_reset_set(AR71XX_RESET_PCI_BUS | AR71XX_RESET_PCI_CORE);
-@@ -358,10 +258,6 @@ static int ar71xx_pci_probe(struct platf
+@@ -357,10 +257,6 @@ static int ar71xx_pci_probe(struct platf
  	if (IS_ERR(apc->cfg_base))
  		return PTR_ERR(apc->cfg_base);
  
@@ -128,7 +138,7 @@
  	ar71xx_pci_reset();
  
  	/* setup COMMAND register */
-@@ -372,8 +268,6 @@ static int ar71xx_pci_probe(struct platf
+@@ -371,8 +267,6 @@ static int ar71xx_pci_probe(struct platf
  	/* clear bus errors */
  	ar71xx_pci_check_error(apc, 1);
  

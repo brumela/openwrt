@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gdb
 PKG_VERSION:=12.1
-PKG_RELEASE:=$(AUTORELEASE)
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@GNU/gdb
@@ -66,6 +66,7 @@ CONFIGURE_ARGS+= \
 	--without-mpc \
 	--without-mpfr \
 	--without-isl \
+	--without-xxhash \
 	--with-libgmp-prefix=$(STAGING_DIR)/usr
 
 CONFIGURE_VARS+= \
